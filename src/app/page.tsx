@@ -1,113 +1,244 @@
-import Image from 'next/image'
+import SignInButton from '@/components/SignInButton';
+import { TextField, Button, Typography } from '@mui/material';
+import { Archivo_Black, Manrope, Roboto } from 'next/font/google';
+import Image from 'next/image';
+import homeImage from '../../public/home page top picture.png';
+import secondHomeImage from '../../public/Second Image Home Page.png';
+import thirdHomeImage from '../../public/Third Photo Home Page.png';
+import fourthHomeImage from '../../public/fourth photo for home page.png';
+import bottomHomeImage from '../../public/bottom photo for home page.png';
+
+const archivo = Archivo_Black({ subsets: ['latin'], weight: ['400'] });
+const manrope = Manrope({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <div
+        id="landingPage"
+        className={archivo.className + ' flex flex-col md:flex-row'}
+      >
+        <div className=" m-2 md:my-auto md:mx-10 md:w-3/6">
+          <h2 className={archivo.className + ' md:m-4'}>
+            Healthy Conversations help your students
+          </h2>
+          <p className={manrope.className + ' md:m-4'}>
+            Healthy Conversations is a Social Emotional Learning (SEL) Resource
+            that creates a space for students to discover healthy and productive
+            ways to deal with loss and grief.
+          </p>
+          <div className="flex w-full justify-center my-3 md:m-4">
+            <Button variant="contained" fullWidth>
+              Get Started
+            </Button>
+          </div>
+        </div>
+        <div className="md:w-3/6">
+          <Image src={homeImage} alt="First image on home page" />
         </div>
       </div>
+      <div className="h-[50px] overflow-hidden">
+        <svg
+          viewBox="0 0 500 150"
+          preserveAspectRatio="none"
+          className="w-full h-full"
+        >
+          <path
+            d="M-0.84,0.52 C144.74,58.72 323.08,58.72 501.97,1.50 L519.47,-17.25 L-1.41,-2.44 Z"
+            className="fill-[#1FD9D4] stroke-none"
+          ></path>
+        </svg>
+      </div>
+      <div
+        id="home-second-section"
+        className={
+          manrope.className +
+          ' secondSecondBackgroundImage md:bg-none relative md:flex md:flex-row-reverse'
+        }
+      >
+        <div className="mx-2 py-2 md:w-4/6 md:m-4">
+          <div className="bg-[#fff] absolute top-0 right-0 opacity-80 w-full h-full z-[0] md:hidden"></div>
+          <div className="z-1 relative">
+            <p className="m-1 md:text-lg">
+              The world is full of loss for students right now. And the
+              challenges they face often don’t show on the outside until lasting
+              damage has been done. Falling grades, family problems, at-risk
+              behavior, addiction – mental health challenges that no generation
+              has faced before.
+            </p>
+            <p className="m-1 my-2 md:text-lg">
+              Student Healthy Conversations is a powerful Social Emotional
+              Learning (SEL) Resource specifically designed to give 6th to 12th
+              grade students the space they need in order to discover healthy
+              ways to deal with loss and grief, and thrive despite the setbacks
+              that everyday life so often throws their way.
+            </p>
+            <p className="m-1 md:text-lg">
+              Designed in partnership with mental health experts and
+              professional speakers who care about students. This highly
+              effective program equips facilitators to engage students in real
+              conversations that help them move through difficult situations.
+              Healthy Conversations is available to public and private school
+              districts in the US.
+            </p>
+          </div>
+        </div>
+        <div className="hidden md:block md:w-2/6">
+          <Image src={secondHomeImage} alt="text" />
+        </div>
+      </div>
+      <div className={manrope.className + ' bg-[#13938C] py-1'}>
+        <h3 className="text-center text-white m-4 md:text-3xl">
+          Conversations that heal - virtually or in person
+        </h3>
+      </div>
+      <div
+        id="home-third-section"
+        className={manrope.className + ' flex-col md:text-center'}
+      >
+        <div className="m-2 md:text-xl md:m-4">
+          <p className="mx-1">
+            School districts can purchase a 1-year subscription to Healthy
+            Conversations, which includes login access for up to 100
+            facilitators and unlimited use of the Resource’s ten segments. Each
+            segment has been carefully designed to draw out strong emotions in a
+            safe space, with comprehensive materials including a facilitator
+            guide, a video message, an online lesson for students, and student
+            take-home materials.
+          </p>
+          <p className="mx-1 my-2">
+            The Ten Healthy Conversations Segments are suitable for group
+            discussions or one on one sessions. Topics include:
+          </p>
+        </div>
+        <div className="md:flex md:flex-row">
+          <div className="m-2 text-center md:my-auto md:mx-auto">
+            <div className="font-semibold md:text-xl">
+              <p className="my-2">You are not alone</p>
+              <p className="my-2">Denial</p>
+              <p className="my-2">Anger</p>
+              <p className="my-2">Bargaining</p>
+              <p className="my-2">Depression related to grieving</p>
+            </div>
+          </div>
+          <div className="m-5 md:w-2/6 md:mx-auto">
+            <Image src={thirdHomeImage} alt="third home image" />
+          </div>
+          <div className="m-2 text-center md:my-auto md:mx-auto">
+            <div className="font-semibold md:text-xl">
+              <p className="my-2">Acceptance & adjustment</p>
+              <p className="my-2">Assigning meaning</p>
+              <p className="my-2">Gratitude</p>
+              <p className="my-2">Setting healthy boundaries</p>
+              <p className="my-2">Be a good friend and support</p>
+            </div>
+          </div>
+        </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+        <div className="m-2 md:text-xl md:m-4">
+          <p className="m-1">
+            Clear, kind and never condescending, Healthy Conversations are
+            perfectly pitched to the age groups who need these exchanges most.
+            Your students will go forward with tools and strategies to help them
+            deal with difficult situations, learn to reach out and communicate
+            with adults and each other, and recognize the goals of good mental
+            health.
+          </p>
+        </div>
+      </div>
+      <div
+        className={
+          manrope.className +
+          ' bg-[#13938C] text-white py-2 md:flex md:flex-row md:mt-20'
+        }
+      >
+        <h2 className="font-extrabold mx-2 text-center md:w-2/6 md:my-auto">
+          School Assemblies they&apos;ll remember
+        </h2>
+        <div className="md:w-4/6">
+          <p className="m-2 md:text-lg">
+            Make your school’s Healthy Conversations Group Lessons even more
+            impactful by presenting a Healthy Conversations Student Assembly to
+            your student body. We’ll bring internationally recognized speakers
+            to your school to share with students about dealing with loss and
+            grief in a healthy way.
+          </p>
+          <p className="text-center">Contact us to learn more:</p>
+          <div className="text-center">
+            <Button color="secondary" size="small" variant="contained">
+              jason@studenthalthyconversations.com
+            </Button>
+          </div>
+          <p className="text-center m-2">(989) 498-9924</p>
+        </div>
+      </div>
+      <div className="md:mt-20">
+        <h2 className="font-bold text-center m-2">
+          Healthy Conversations Speakers
+        </h2>
+        <p className="m-2">
+          Our team is made up of men and women from across the United States who
+          have been speaking in schools for 40 years. We have partnered with
+          other speakers who speak to a combined over 1.5 million students every
+          year. Our message is always one of Hope and Compassion.
+        </p>
+        <div
+          id="home-video-player"
+          className="mx-2 my-5 h-[175px] md:h-[350px] md:mx-auto md:w-auto"
+        >
+          <iframe
+            src="https://player.vimeo.com/video/746959787?h=92e94c9dec"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen={true}
+            className="rounded-md w-full h-full"
+          ></iframe>
+        </div>
+      </div>
+      <div className="py-2 fourthSectionBackgroundImage md:bg-none relative md:flex md:flex-row-reverse md:bg-[#1DB669] md:py-0 md:mt-20">
+        <div className="bg-[#1DB669] absolute top-0 right-0 opacity-80 w-full h-full z-[0] md:hidden"></div>
+        <div className="z-[50] relative text-white  md:mx-auto md:my-auto md:w-4/6">
+          <h2 className="font-bold text-center py-2 z-1">
+            Ready to get started?
+          </h2>
+          <p className="m-2 z-1">
+            Healthy Conversations includes Group Lessons, 10 segments with a
+            complete package of materials, Facilitator Guides, and more.
+          </p>
+          <div className="m-2 z-1">
+            <Button fullWidth variant="contained">
+              Get Started
+            </Button>
+          </div>
+        </div>
+
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          className="hidden md:block md:w-2/6"
+          src={fourthHomeImage}
+          alt="fourth home image"
         />
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+      <div className="md:mt-20 md:flex md:flex-row ">
+        <div className="md:w-3/6 md:my-auto md:mx-20">
+          <h2 className="font-bold text-center my-2 md:text-5xl">
+            Healthy Conversations help your students face the world
           </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+          <p className="m-2 md:text-xl">
+            Developed by expert communicators and mental health professionals,
+            this program equips facilitators to engage students in meaningful
+            conversations to help them move forward through difficult
+            situations.
           </p>
-        </a>
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <div className="md:w-3/6">
+          <Image src={bottomHomeImage} alt="bottom home image" />
+        </div>
       </div>
-    </main>
-  )
+      <div className="bg-[#13938C] p-2">
+        <p className="text-white m-2 text-center">
+          Student Healthy Conversations
+        </p>
+      </div>
+    </div>
+  );
 }

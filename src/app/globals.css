@@ -2,7 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+#landingPage {
+  background: rgb(250,255,255);
+  background: linear-gradient(180deg, rgba(250,255,255,1) 0%, rgba(31,217,212,1) 100%);
+}
+
+.secondSecondBackgroundImage {
+  background-image: url("../../public/Second\ Image\ Home\ Page.png")
+}
+
+.fourthSectionBackgroundImage {
+  background-image: url("../../public/fourth photo for home page.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.aboutPageBannerImage {
+  background-image: url("../../public/About\ Page\ Topic\ Banner.png");
+  background-size: cover;
+  background-repeat: no-repeat
+}
+
+.bottomAboutPageBanner {
+  background-image: url("../../public/Bottom\ About\ Page\ Image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.healthyConversationsBanner {
+  background-image: url("../../public/Healthy\ Conversations\ Page\ Topic\ Banner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.healthyConversationsSecondImage {
+  background-image: url("../../public/Second\ Image\ Healthy\ Conversations\ Page.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.right-shadow {
+  box-shadow: 10px 0 5px -2px #888;
+}
+
+.left-shadow {
+  box-shadow: 0 5px 10px -2px #888;
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl md:text-6xl;
+  }
+  h2 {
+    @apply text-2xl md:text-4xl
+  }
+  h3 {
+    @apply text-lg md:text-2xl
+  }
+  h4 {
+    @apply text-lg;
+  }
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +86,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
