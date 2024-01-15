@@ -71,11 +71,11 @@ const Navbar = () => {
                 Healthy Conversations
               </Button>
             </div>
-            {session?.user ? (
-              <div className="mx-2">
-                <Button href="/dashboard">Dashboard</Button>
-              </div>
-            ) : null}
+            {/* {session?.user ? ( */}
+            <div className="mx-2">
+              <Button href="/dashboard">Dashboard</Button>
+            </div>
+            {/* ) : null} */}
 
             <div className="mx-2">
               <SignInButton />
