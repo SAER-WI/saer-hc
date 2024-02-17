@@ -18,9 +18,7 @@ model Userhc {
   firstname String
   lastname  String
   password  String
-  approved  Boolean         @default(false)
   admin     Boolean         @default(false)
-  blocked   Boolean         @default(false)
   logs      ActivityLoghc[]
 }
 
