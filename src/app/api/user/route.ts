@@ -28,7 +28,8 @@ export async function POST(request:Request) {
     
       const {password, ...res} = user;
       return new Response(JSON.stringify(res));
-  } catch {
+  } catch (exception){
+    console.log(exception)
     const response = new Response(null, {status: 400, statusText: 'BAD REQUEST'});
     return response;
   }
