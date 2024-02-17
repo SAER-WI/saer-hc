@@ -45,6 +45,25 @@ const Navbar = () => {
             >
               <ListItemText primary="Healthy Conversations" />
             </ListItemButton>
+            {session?.user ? (
+              <ListItemButton
+                divider
+                onClick={() => setOpen(false)}
+                href="/dashboard"
+              >
+                <ListItemText primary="Dashboard" />
+              </ListItemButton>
+            ) : null}
+
+            {session?.user.admin ? (
+              <ListItemButton
+                divider
+                onClick={() => setOpen(false)}
+                href="/admin"
+              >
+                <ListItemText primary="Admin page" />
+              </ListItemButton>
+            ) : null}
           </List>
         </Drawer>
         <div className="flex justify-between w-full">
@@ -71,12 +90,16 @@ const Navbar = () => {
                 Healthy Conversations
               </Button>
             </div>
-            {/* {session?.user ? ( */}
-            <div className="mx-2">
-              <Button href="/dashboard">Dashboard</Button>
-            </div>
-            {/* ) : null} */}
-
+            {session?.user ? (
+              <div className="mx-2">
+                <Button href="/dashboard">Dashboard</Button>
+              </div>
+            ) : null}
+            {session?.user.admin ? (
+              <div className="mx-2">
+                <Button href="/admin">Admin</Button>
+              </div>
+            ) : null}
             <div className="mx-2">
               <SignInButton />
             </div>

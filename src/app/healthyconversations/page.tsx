@@ -34,7 +34,7 @@ const page = () => {
         </Card>
         <div className="mx-auto my-4 md:w-3/6">
           <iframe
-            src="https://player.vimeo.com/video/746959787?h=92e94c9dec"
+            src="https://player.vimeo.com/video/906105018?h=6a91fe1eab&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen={true}
             className="rounded-md w-full h-[175px] md:h-[350px]"

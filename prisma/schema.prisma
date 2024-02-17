@@ -2,27 +2,51 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id       Int     @id @default(autoincrement())
-  email    String  @unique
-  name     String?
-  password String
-  posts    Post[]
+model Userhc {
+  id        Int             @id @default(autoincrement())
+  email     String          @unique
+  firstname String
+  lastname  String
+  password  String
+  approved  Boolean         @default(false)
+  admin     Boolean         @default(false)
+  blocked   Boolean         @default(false)
+  logs      ActivityLoghc[]
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+model ActivityLoghc {
+  id       Int      @id @default(autoincrement())
+  user     Userhc   @relation(fields: [userId], references: [id])
+  userId   Int
+  lessonId String
+  date     DateTime
+}
+
+model User {
+  id        Int           @id @default(autoincrement())
+  email     String        @unique
+  firstname String
+  lastname  String
+  password  String
+  approved  Boolean       @default(false)
+  admin     Boolean       @default(false)
+  blocked   Boolean       @default(false)
+  logs      ActivityLog[]
+}
+
+model ActivityLog {
+  id       Int      @id @default(autoincrement())
+  user     User     @relation(fields: [userId], references: [id])
+  userId   Int
+  lessonId String
+  date     DateTime
 }
