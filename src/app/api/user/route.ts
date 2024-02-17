@@ -21,8 +21,6 @@ export async function POST(request:Request) {
           email:body.email,
           password: await bcrypt.hash(body.password, 10),
           admin: body.admin,
-          approved: body.approved,
-          blocked: body.blocked
         }
       });
     
@@ -43,8 +41,6 @@ export async function GET() {
         lastname: true,
         email: true,
         admin: true,
-        approved: true,
-        blocked: true,
       }
     })
 
