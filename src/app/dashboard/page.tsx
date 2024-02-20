@@ -81,9 +81,9 @@ const Page = () => {
           <a
             className="hover:underline"
             onClick={() => handleClick('lesson2')}
-            href="https://www.dropbox.com/scl/fo/0v3v6g3nnkw46eayowzl8/h?rlkey=9ce27m3okcums59e1niu9fkoq&dl=1"
+            href="https://www.dropbox.com/scl/fi/p4fhm9ostk3gucfwdweji/02-Denial.pptx?rlkey=3ax99wupbrlce7sdr7z3934ur&dl=1"
           >
-            Lesson 2: Dealing With Denial | Last Downloaded:{' '}
+            Lesson 2: Denial | Last Downloaded:{' '}
             {
               activityLogs.find(
                 (log: ActivityLog) => log.lessonId === 'lesson2'
@@ -95,7 +95,7 @@ const Page = () => {
             onClick={() => handleClick('lesson3')}
             href="https://www.dropbox.com/scl/fi/l3lknj1hchi9ueda1g00u/03-Anger.pptx?rlkey=yc53ww4kjj1bjy6gxg88t8k85&dl=1"
           >
-            Lesson 3: Controlling Anger | Last Downloaded:{' '}
+            Lesson 3: Anger | Last Downloaded:{' '}
             {
               activityLogs.find(
                 (log: ActivityLog) => log.lessonId === 'lesson3'
@@ -117,7 +117,7 @@ const Page = () => {
           <a
             className="hover:underline"
             onClick={() => handleClick('lesson5')}
-            href="https://www.dropbox.com/scl/fo/rp2fwir4th0s5jifq4jye/h?rlkey=2tib6t4a2elntvjef9sthjnze&dl=1"
+            href="https://www.dropbox.com/scl/fi/zrksfcqx12r3dv64x8c8c/05-Depression.pptx?rlkey=0ar7azpxyagiw75p2pirqu9d7&dl=1"
           >
             Lesson 5: Depression | Last Downloaded:{' '}
             {
@@ -167,7 +167,7 @@ const Page = () => {
             onClick={() => handleClick('lesson9')}
             href="https://www.dropbox.com/scl/fi/d0yv4x0eiqfcw54082q64/09-Boundaries.pptx?rlkey=qquaeblpm6lad6fwtedg8c2ge&dl=1"
           >
-            Lesson 9: Healthy Boundaries | Last Downloaded:{' '}
+            Lesson 9: Boundaries | Last Downloaded:{' '}
             {
               activityLogs.find(
                 (log: ActivityLog) => log.lessonId === 'lesson9'
@@ -179,7 +179,7 @@ const Page = () => {
             onClick={() => handleClick('lesson10')}
             href="https://www.dropbox.com/scl/fi/5n970tb3o0s4u4z882p10/10-Friendship.pptx?rlkey=df1ybb7oib906p0bhx5g7y7bx&dl=1"
           >
-            Lesson 10: Friendship and Support | Last Downloaded:{' '}
+            Lesson 10: Friendship | Last Downloaded:{' '}
             {
               activityLogs.find(
                 (log: ActivityLog) => log.lessonId === 'lesson10'
