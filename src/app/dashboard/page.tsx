@@ -68,7 +68,7 @@ const Page = () => {
           </a>
           <a
             onClick={() => handleClick('lesson1')}
-            href="https://www.dropbox.com/scl/fo/xcw34q5g9fafjqjkzlkh9/h?rlkey=gc7i7j1k90i8i2adbdhhpqjhy&dl=1"
+            href="https://www.dropbox.com/scl/fi/wyhv9rvgdj056w1il8yyl/01-You-Are-Not-Alone.pptx?rlkey=9qln2h4fe5x6oa10081f0yfq0&dl=1"
             className="hover:underline visited:text-white"
           >
             Lesson 1: You Are Not Alone | Last Downloaded:{' '}
@@ -93,7 +93,7 @@ const Page = () => {
           <a
             className="hover:underline"
             onClick={() => handleClick('lesson3')}
-            href="https://www.dropbox.com/scl/fo/ktpwv5kpe8omtmafdpvcw/h?rlkey=v39d97m3jkksoe20mz692jce9&dl=1"
+            href="https://www.dropbox.com/scl/fi/l3lknj1hchi9ueda1g00u/03-Anger.pptx?rlkey=yc53ww4kjj1bjy6gxg88t8k85&dl=1"
           >
             Lesson 3: Controlling Anger | Last Downloaded:{' '}
             {
@@ -105,7 +105,7 @@ const Page = () => {
           <a
             className="hover:underline"
             onClick={() => handleClick('lesson4')}
-            href="https://www.dropbox.com/scl/fo/8yd8hjxzvofnkchhdoiwi/h?rlkey=g97mojzhhjz8zakervzynlw9w&dl=1"
+            href="https://www.dropbox.com/scl/fi/l25tjtkoy6wxp937a67ad/04-Bargaining.pptx?rlkey=ep8p5dxkqbyqf4avuqkm8ndff&dl=1"
           >
             Lesson 4: Bargaining | Last Downloaded:{' '}
             {
@@ -129,7 +129,7 @@ const Page = () => {
           <a
             className="hover:underline"
             onClick={() => handleClick('lesson6')}
-            href="https://www.dropbox.com/scl/fo/u1qyp3dln822qmjf56n2e/h?rlkey=3awqyslhgqww8nu2bz7xj9ymm&dl=1"
+            href="https://www.dropbox.com/scl/fi/nyd09rth3selmwlq9ykn4/06-Acceptance.pptx?rlkey=vzxej9huuyh1o9b1ya2h66ga8&dl=1"
           >
             Lesson 6: Acceptance | Last Downloaded:{' '}
             {
@@ -141,7 +141,7 @@ const Page = () => {
           <a
             className="hover:underline"
             onClick={() => handleClick('lesson7')}
-            href="https://www.dropbox.com/scl/fo/dmu34yac694iani61pd7n/h?rlkey=h11fvbuyku9qggg1shon2x24b&dl=1"
+            href="https://www.dropbox.com/scl/fi/4fxv353tbhwrgp3gcoeny/07-Assigning-Meaning.pptx?rlkey=o4pag1zm1v4vxn4hkf2j5cz1s&dl=1"
           >
             Lesson 7: Assigning Meaning | Last Downloaded:{' '}
             {
@@ -153,7 +153,7 @@ const Page = () => {
           <a
             className="hover:underline"
             onClick={() => handleClick('lesson8')}
-            href="https://www.dropbox.com/scl/fo/7d29tyl9jja10a6632ucq/h?rlkey=un2s14bnls0u59mm3l1n2olwq&dl=1"
+            href="https://www.dropbox.com/scl/fi/7fvp3vgmew4rxv192ao88/08-Gratitude.pptx?rlkey=x7jz4iuqqhww6enzwr3v97x3x&dl=1"
           >
             Lesson 8: Gratitude | Last Downloaded:{' '}
             {
@@ -165,7 +165,7 @@ const Page = () => {
           <a
             className="hover:underline"
             onClick={() => handleClick('lesson9')}
-            href="https://www.dropbox.com/scl/fo/jthpx6jyb0g82l1tgpy4k/h?rlkey=q5554zv9dbxnqjzqohho044ge&dl=1"
+            href="https://www.dropbox.com/scl/fi/d0yv4x0eiqfcw54082q64/09-Boundaries.pptx?rlkey=qquaeblpm6lad6fwtedg8c2ge&dl=1"
           >
             Lesson 9: Healthy Boundaries | Last Downloaded:{' '}
             {
@@ -177,7 +177,7 @@ const Page = () => {
           <a
             className="hover:underline"
             onClick={() => handleClick('lesson10')}
-            href="https://www.dropbox.com/scl/fo/8xa61g1gkwalgy0asxxl2/h?rlkey=m3dnbzbctg639ovixujh2ujlo&dl=1"
+            href="https://www.dropbox.com/scl/fi/5n970tb3o0s4u4z882p10/10-Friendship.pptx?rlkey=df1ybb7oib906p0bhx5g7y7bx&dl=1"
           >
             Lesson 10: Friendship and Support | Last Downloaded:{' '}
             {
