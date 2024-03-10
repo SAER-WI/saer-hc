@@ -198,70 +198,70 @@ const Page = () => {
           </a>
           <a
             className="hover:underline"
-            href="https://vimeo.com/888880268?share=copy"
+            href="https://vimeo.com/888880268/d3633c22db?share=copy"
             target="_blank"
           >
             Lesson 1: You&apos;re Not Alone
           </a>
           <a
             className="hover:underline"
-            href="https://vimeo.com/888881309?share=copy"
+            href="https://vimeo.com/888881309/02a21c7941?share=copy"
             target="_blank"
           >
             Lesson 2: Denial
           </a>
           <a
             className="hover:underline"
-            href="https://vimeo.com/888882260?share=copy"
+            href="https://vimeo.com/888882260/6109bd9179?share=copy"
             target="_blank"
           >
             Lesson 3: Anger
           </a>
           <a
             className="hover:underline"
-            href="https://vimeo.com/888883173?share=copy"
+            href="https://vimeo.com/888883173/a6804c7e59?share=copy"
             target="_blank"
           >
             Lesson 4: Bargaining
           </a>
           <a
             className="hover:underline"
-            href="https://vimeo.com/888884122?share=copy"
+            href="https://vimeo.com/888884122/8844deb2a6?share=copy"
             target="_blank"
           >
             Lesson 5: Depression
           </a>
           <a
             className="hover:underline"
-            href="https://vimeo.com/888884619?share=copy"
+            href="https://vimeo.com/888884619/f9ef76a4d0?share=copy"
             target="_blank"
           >
             Lesson 6: Acceptance
           </a>
           <a
             className="hover:underline"
-            href="https://vimeo.com/888884933?share=copy"
+            href="https://vimeo.com/888884933/5b8002896c?share=copy"
             target="_blank"
           >
             Lesson 7: Assigning Meaning
           </a>
           <a
             className="hover:underline"
-            href="https://vimeo.com/888885432?share=copy"
+            href="https://vimeo.com/888885432/136d6d426a?share=copy"
             target="_blank"
           >
             Lesson 8: Gratitude
           </a>
           <a
             className="hover:underline"
-            href="https://vimeo.com/888886334?share=copy"
+            href="https://vimeo.com/888886334/6a5dbdb0a5?share=copy"
             target="_blank"
           >
             Lesson 9: Boundaries
           </a>
           <a
             className="hover:underline"
-            href="https://vimeo.com/888886775?share=copy"
+            href="https://vimeo.com/888886775/f6b7be2f2e?share=copy"
             target="_blank"
           >
             Lesson 10: Friendship

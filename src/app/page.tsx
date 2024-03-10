@@ -1,3 +1,4 @@
+'use client';
 import SignInButton from '@/components/SignInButton';
 import { TextField, Button, Typography } from '@mui/material';
 import { Archivo_Black, Manrope, Roboto } from 'next/font/google';
@@ -7,11 +8,22 @@ import secondHomeImage from '../../public/Second Image Home Page.png';
 import thirdHomeImage from '../../public/Third Photo Home Page.png';
 import fourthHomeImage from '../../public/fourth photo for home page.png';
 import bottomHomeImage from '../../public/bottom photo for home page.png';
+import { useSession } from 'next-auth/react';
+import { useEffect, useRef } from 'react';
 
 const archivo = Archivo_Black({ subsets: ['latin'], weight: ['400'] });
 const manrope = Manrope({ subsets: ['latin'] });
 
 export default function Home() {
+  const { data: session } = useSession();
+
+  const href = useRef('/signIn');
+
+  useEffect(() => {
+    if (session?.user) {
+      href.current = '/dashboard';
+    }
+  }, [session?.user]);
   return (
     <div>
       <div
@@ -28,7 +40,7 @@ export default function Home() {
             ways to deal with loss and grief.
           </p>
           <div className="flex w-full justify-center my-3 md:m-4">
-            <Button variant="contained" fullWidth>
+            <Button variant="contained" fullWidth href={href.current}>
               Get Started
             </Button>
           </div>
@@ -98,13 +110,12 @@ export default function Home() {
       >
         <div className="m-2 md:text-xl md:m-4">
           <p className="mx-1">
-            School districts can purchase a 1-year subscription to Healthy
-            Conversations, which includes login access for up to 100
-            facilitators and unlimited use of the Resource’s ten segments. Each
-            segment has been carefully designed to draw out strong emotions in a
-            safe space, with comprehensive materials including a facilitator
-            guide, a video message, an online lesson for students, and student
-            take-home materials.
+            Create your free account to access unlimited use of the
+            Resource&apos;s ten segments. Each segment has been carefully
+            designed to draw out strong emotions in a safe space, with
+            comprehensive materials including a facilitator guide, a video
+            message, an online lesson for students, and student take-home
+            materials.
           </p>
           <p className="mx-1 my-2">
             The Ten Healthy Conversations Segments are suitable for group
@@ -187,7 +198,7 @@ export default function Home() {
           className="mx-2 my-5 h-[175px] md:h-[350px] md:mx-auto md:w-auto"
         >
           <iframe
-            src="https://player.vimeo.com/video/746959787?h=92e94c9dec"
+            src="https://player.vimeo.com/video/906105018?h=6a91fe1eab&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen={true}
             className="rounded-md w-full h-full"
