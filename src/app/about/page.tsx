@@ -20,8 +20,8 @@ const page = () => {
             About
           </h1>
           <h3 className={manrope.className + ' text-white text-center m-2'}>
-            Social Emotional Learning and Character Ed resources that challenge
-            students through compassion and hope
+            Social Emotional Learning and Character Ed Resources that Challenge
+            Students Through Compassion and Hope
           </h3>
         </div>
       </div>
@@ -40,7 +40,7 @@ const page = () => {
             these conversations through powerful, engaging, and innovative
             resources.
           </p>
-          <h2 className="text-center font-semibold">Our History</h2>
+          <h2 className="text-center font-semibold mt-8">Our History</h2>
           <p className="m-2">
             A team of school speakers and trainers from across the nation came
             together to create engaging and challenging content to have a
@@ -71,8 +71,8 @@ const page = () => {
         <p className="text-center m-2 md:text-xl">Contact us</p>
         <div>
           <div className="text-center">
-            <Button color="secondary" variant="contained">
-              Email
+            <Button color="secondary" variant="contained" size="small">
+              jason@studenthealthyconversations.com
             </Button>
           </div>
           <p className="text-center m-2 md:text-xl">(989) 498-9924</p>

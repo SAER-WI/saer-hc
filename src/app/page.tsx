@@ -32,7 +32,7 @@ export default function Home() {
       >
         <div className=" m-2 md:my-auto md:mx-10 md:w-3/6">
           <h2 className={archivo.className + ' md:m-4'}>
-            Healthy Conversations help your students
+            Healthy Conversations Help Your Students
           </h2>
           <p className={manrope.className + ' md:m-4'}>
             Healthy Conversations is a Social Emotional Learning (SEL) Resource
@@ -44,6 +44,9 @@ export default function Home() {
               Get Started
             </Button>
           </div>
+          <h4 className={manrope.className + ' text-white md:m-4'}>
+            Click the Get Started button to sign up for a free account!
+          </h4>
         </div>
         <div className="md:w-3/6">
           <Image src={homeImage} alt="First image on home page" />
@@ -101,7 +104,7 @@ export default function Home() {
       </div>
       <div className={manrope.className + ' bg-[#13938C] py-1'}>
         <h3 className="text-center text-white m-4 md:text-3xl">
-          Conversations that heal - virtually or in person
+          Conversations that Heal - Virtually or In Person
         </h3>
       </div>
       <div
@@ -125,11 +128,11 @@ export default function Home() {
         <div className="md:flex md:flex-row">
           <div className="m-2 text-center md:my-auto md:mx-auto">
             <div className="font-semibold md:text-xl">
-              <p className="my-2">You are not alone</p>
+              <p className="my-2">You Are Not Alone</p>
               <p className="my-2">Denial</p>
               <p className="my-2">Anger</p>
               <p className="my-2">Bargaining</p>
-              <p className="my-2">Depression related to grieving</p>
+              <p className="my-2">Depression Related to Grieving</p>
             </div>
           </div>
           <div className="m-5 md:w-2/6 md:mx-auto">
@@ -137,11 +140,11 @@ export default function Home() {
           </div>
           <div className="m-2 text-center md:my-auto md:mx-auto">
             <div className="font-semibold md:text-xl">
-              <p className="my-2">Acceptance & adjustment</p>
-              <p className="my-2">Assigning meaning</p>
+              <p className="my-2">Acceptance & Adjustment</p>
+              <p className="my-2">Assigning Meaning</p>
               <p className="my-2">Gratitude</p>
-              <p className="my-2">Setting healthy boundaries</p>
-              <p className="my-2">Be a good friend and support</p>
+              <p className="my-2">Setting Healthy Boundaries</p>
+              <p className="my-2">Be a Good Friend and Support</p>
             </div>
           </div>
         </div>
@@ -164,7 +167,7 @@ export default function Home() {
         }
       >
         <h2 className="font-extrabold mx-2 text-center md:w-2/6 md:my-auto">
-          School Assemblies they&apos;ll remember
+          School Assemblies They&apos;ll Remember
         </h2>
         <div className="md:w-4/6">
           <p className="m-2 md:text-lg">
@@ -177,7 +180,7 @@ export default function Home() {
           <p className="text-center">Contact us to learn more:</p>
           <div className="text-center">
             <Button color="secondary" size="small" variant="contained">
-              jason@studenthalthyconversations.com
+              jason@studenthealthyconversations.com
             </Button>
           </div>
           <p className="text-center m-2">(989) 498-9924</p>
@@ -209,14 +212,14 @@ export default function Home() {
         <div className="bg-[#1DB669] absolute top-0 right-0 opacity-80 w-full h-full z-[0] md:hidden"></div>
         <div className="z-[50] relative text-white  md:mx-auto md:my-auto md:w-4/6">
           <h2 className="font-bold text-center py-2 z-1">
-            Ready to get started?
+            Ready to Get Started?
           </h2>
           <p className="m-2 z-1">
             Healthy Conversations includes Group Lessons, 10 segments with a
             complete package of materials, Facilitator Guides, and more.
           </p>
           <div className="m-2 z-1">
-            <Button fullWidth variant="contained">
+            <Button fullWidth variant="contained" href={href.current}>
               Get Started
             </Button>
           </div>
@@ -228,10 +231,10 @@ export default function Home() {
           alt="fourth home image"
         />
       </div>
-      <div className="md:mt-20 md:flex md:flex-row ">
+      <div className="md:mt-4 md:flex md:flex-row ">
         <div className="md:w-3/6 md:my-auto md:mx-20">
-          <h2 className="font-bold text-center my-2 md:text-5xl">
-            Healthy Conversations help your students face the world
+          <h2 className="font-bold text-center my-5 md:text-5xl">
+            Healthy Conversations Help Your Students Face the World
           </h2>
           <p className="m-2 md:text-xl">
             Developed by expert communicators and mental health professionals,

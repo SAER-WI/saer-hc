@@ -64,6 +64,9 @@ const Navbar = () => {
                 <ListItemText primary="Admin page" />
               </ListItemButton>
             ) : null}
+            <ListItemButton>
+              <SignInButton />
+            </ListItemButton>
           </List>
         </Drawer>
         <div className="flex justify-between w-full">
