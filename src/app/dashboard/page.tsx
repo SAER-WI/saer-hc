@@ -101,203 +101,264 @@ const Page = () => {
           <h4>Click to Download All Course Files</h4>
         </div>
         <div className="flex flex-col text-center m-2">
-          <a
-            onClick={() => handleClick('lesson1')}
-            href="https://www.dropbox.com/scl/fi/wyhv9rvgdj056w1il8yyl/01-You-Are-Not-Alone.pptx?rlkey=9qln2h4fe5x6oa10081f0yfq0&dl=1"
-            className="hover:underline visited:text-white"
-          >
-            Lesson 1: You Are Not Alone | Last Downloaded:{' '}
-            {
-              activityLogs.find(
-                (log: ActivityLog) => log.lessonId === 'lesson1'
-              )?.date
-            }
-          </a>
-          <a
-            className="hover:underline"
-            onClick={() => handleClick('lesson2')}
-            href="https://www.dropbox.com/scl/fi/p4fhm9ostk3gucfwdweji/02-Denial.pptx?rlkey=3ax99wupbrlce7sdr7z3934ur&dl=1"
-          >
-            Lesson 2: Denial | Last Downloaded:{' '}
-            {
-              activityLogs.find(
-                (log: ActivityLog) => log.lessonId === 'lesson2'
-              )?.date
-            }
-          </a>
-          <a
-            className="hover:underline"
-            onClick={() => handleClick('lesson3')}
-            href="https://www.dropbox.com/scl/fi/l3lknj1hchi9ueda1g00u/03-Anger.pptx?rlkey=yc53ww4kjj1bjy6gxg88t8k85&dl=1"
-          >
-            Lesson 3: Anger | Last Downloaded:{' '}
-            {
-              activityLogs.find(
-                (log: ActivityLog) => log.lessonId === 'lesson3'
-              )?.date
-            }
-          </a>
-          <a
-            className="hover:underline"
-            onClick={() => handleClick('lesson4')}
-            href="https://www.dropbox.com/scl/fi/l25tjtkoy6wxp937a67ad/04-Bargaining.pptx?rlkey=ep8p5dxkqbyqf4avuqkm8ndff&dl=1"
-          >
-            Lesson 4: Bargaining | Last Downloaded:{' '}
-            {
-              activityLogs.find(
-                (log: ActivityLog) => log.lessonId === 'lesson4'
-              )?.date
-            }
-          </a>
-          <a
-            className="hover:underline"
-            onClick={() => handleClick('lesson5')}
-            href="https://www.dropbox.com/scl/fi/zrksfcqx12r3dv64x8c8c/05-Depression.pptx?rlkey=0ar7azpxyagiw75p2pirqu9d7&dl=1"
-          >
-            Lesson 5: Depression | Last Downloaded:{' '}
-            {
-              activityLogs.find(
-                (log: ActivityLog) => log.lessonId === 'lesson5'
-              )?.date
-            }
-          </a>
-          <a
-            className="hover:underline"
-            onClick={() => handleClick('lesson6')}
-            href="https://www.dropbox.com/scl/fi/nyd09rth3selmwlq9ykn4/06-Acceptance.pptx?rlkey=vzxej9huuyh1o9b1ya2h66ga8&dl=1"
-          >
-            Lesson 6: Acceptance | Last Downloaded:{' '}
-            {
-              activityLogs.find(
-                (log: ActivityLog) => log.lessonId === 'lesson6'
-              )?.date
-            }
-          </a>
-          <a
-            className="hover:underline"
-            onClick={() => handleClick('lesson7')}
-            href="https://www.dropbox.com/scl/fi/4fxv353tbhwrgp3gcoeny/07-Assigning-Meaning.pptx?rlkey=o4pag1zm1v4vxn4hkf2j5cz1s&dl=1"
-          >
-            Lesson 7: Assigning Meaning | Last Downloaded:{' '}
-            {
-              activityLogs.find(
-                (log: ActivityLog) => log.lessonId === 'lesson7'
-              )?.date
-            }
-          </a>
-          <a
-            className="hover:underline"
-            onClick={() => handleClick('lesson8')}
-            href="https://www.dropbox.com/scl/fi/7fvp3vgmew4rxv192ao88/08-Gratitude.pptx?rlkey=x7jz4iuqqhww6enzwr3v97x3x&dl=1"
-          >
-            Lesson 8: Gratitude | Last Downloaded:{' '}
-            {
-              activityLogs.find(
-                (log: ActivityLog) => log.lessonId === 'lesson8'
-              )?.date
-            }
-          </a>
-          <a
-            className="hover:underline"
-            onClick={() => handleClick('lesson9')}
-            href="https://www.dropbox.com/scl/fi/d0yv4x0eiqfcw54082q64/09-Boundaries.pptx?rlkey=qquaeblpm6lad6fwtedg8c2ge&dl=1"
-          >
-            Lesson 9: Boundaries | Last Downloaded:{' '}
-            {
-              activityLogs.find(
-                (log: ActivityLog) => log.lessonId === 'lesson9'
-              )?.date
-            }
-          </a>
-          <a
-            className="hover:underline"
-            onClick={() => handleClick('lesson10')}
-            href="https://www.dropbox.com/scl/fi/5n970tb3o0s4u4z882p10/10-Friendship.pptx?rlkey=df1ybb7oib906p0bhx5g7y7bx&dl=1"
-          >
-            Lesson 10: Friendship | Last Downloaded:{' '}
-            {
-              activityLogs.find(
-                (log: ActivityLog) => log.lessonId === 'lesson10'
-              )?.date
-            }
-          </a>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              onClick={() => handleClick('lesson1')}
+              href="https://www.dropbox.com/scl/fo/tcjh4kuljp669tdv0ab9d/h?rlkey=si36x9xsosdljc8weg65l0b4l&dl=1"
+              variant="contained"
+              color={
+                activityLogs.some((log) => log.lessonId === 'lesson1')
+                  ? 'secondary'
+                  : 'primary'
+              }
+            >
+              Lesson 1: You Are Not Alone
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              onClick={() => handleClick('lesson2')}
+              href="https://www.dropbox.com/scl/fo/9p2timpdxgphfmjs54i5a/h?rlkey=5kep6ste96ffzub0pczl2imnm&dl=1"
+              variant="contained"
+              color={
+                activityLogs.some((log) => log.lessonId === 'lesson2')
+                  ? 'secondary'
+                  : 'primary'
+              }
+            >
+              Lesson 2: Denial
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              onClick={() => handleClick('lesson3')}
+              href="https://www.dropbox.com/scl/fo/svzcbtpl6y20jw3ftm6ih/h?rlkey=8qfqrn8ezzgx1usar9xej6aas&dl=1"
+              variant="contained"
+              color={
+                activityLogs.some((log) => log.lessonId === 'lesson3')
+                  ? 'secondary'
+                  : 'primary'
+              }
+            >
+              Lesson 3: Anger
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              onClick={() => handleClick('lesson4')}
+              href="https://www.dropbox.com/scl/fo/72wp8n4hpejjp23gmpfri/h?rlkey=drnble4gkltyaovwhkroaloo6&dl=1"
+              variant="contained"
+              color={
+                activityLogs.some((log) => log.lessonId === 'lesson4')
+                  ? 'secondary'
+                  : 'primary'
+              }
+            >
+              Lesson 4: Bargaining
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              onClick={() => handleClick('lesson5')}
+              href="https://www.dropbox.com/scl/fo/gi3gsp6h0z8oagq0x90bh/h?rlkey=2gswjruq9b08mcxmkyqkb3o1z&dl=1"
+              variant="contained"
+              color={
+                activityLogs.some((log) => log.lessonId === 'lesson5')
+                  ? 'secondary'
+                  : 'primary'
+              }
+            >
+              Lesson 5: Depression
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              onClick={() => handleClick('lesson6')}
+              href="https://www.dropbox.com/scl/fo/c628p738jzqsa1od4mwy7/h?rlkey=dajltnx2xpuhu061om5lhzwn8&dl=1"
+              variant="contained"
+              color={
+                activityLogs.some((log) => log.lessonId === 'lesson6')
+                  ? 'secondary'
+                  : 'primary'
+              }
+            >
+              Lesson 6: Acceptance
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              onClick={() => handleClick('lesson7')}
+              href="https://www.dropbox.com/scl/fo/owe78pwkriw9q2d5zuhcu/h?rlkey=cwbnl62v0m8ab1yt4is3dcnol&dl=1"
+              variant="contained"
+              color={
+                activityLogs.some((log) => log.lessonId === 'lesson7')
+                  ? 'secondary'
+                  : 'primary'
+              }
+            >
+              Lesson 7: Assigning Meaning
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              onClick={() => handleClick('lesson8')}
+              href="https://www.dropbox.com/scl/fo/xsqxkcl3yf7menlcenz0n/h?rlkey=g9a6r7mld1jbnstqm4oxgvwrg&dl=1"
+              variant="contained"
+              color={
+                activityLogs.some((log) => log.lessonId === 'lesson8')
+                  ? 'secondary'
+                  : 'primary'
+              }
+            >
+              Lesson 8: Gratitude
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              onClick={() => handleClick('lesson9')}
+              href="https://www.dropbox.com/scl/fo/tm3ncursjl7nl5go6u924/h?rlkey=t5z3r2amlzywvaxlknrvt6hhh&dl=1"
+              variant="contained"
+              color={
+                activityLogs.some((log) => log.lessonId === 'lesson9')
+                  ? 'secondary'
+                  : 'primary'
+              }
+            >
+              Lesson 9: Boundaries
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              onClick={() => handleClick('lesson10')}
+              href="https://www.dropbox.com/scl/fo/8qld9sg3jszy8ehh7xof1/h?rlkey=zq3kf6fj0iz5cpinh2zxxq92t&dl=1"
+              variant="contained"
+              color={
+                activityLogs.some((log) => log.lessonId === 'lesson10')
+                  ? 'secondary'
+                  : 'primary'
+              }
+            >
+              Lesson 10: Friendship
+            </Button>
+          </div>
         </div>
       </div>
       <div className="md:w-2/6 right-shadow">
         <div className={archivo.className + ' text-center text-semibold m-2'}>
           <h3>Course Videos</h3>
+          <h4>Click to Watch Course Videos</h4>
         </div>
         <div className="flex flex-col text-center m-2">
-          <a
-            className="hover:underline"
-            href="https://vimeo.com/888880268/d3633c22db?share=copy"
-            target="_blank"
-          >
-            Lesson 1: You&apos;re Not Alone
-          </a>
-          <a
-            className="hover:underline"
-            href="https://vimeo.com/888881309/02a21c7941?share=copy"
-            target="_blank"
-          >
-            Lesson 2: Denial
-          </a>
-          <a
-            className="hover:underline"
-            href="https://vimeo.com/888882260/6109bd9179?share=copy"
-            target="_blank"
-          >
-            Lesson 3: Anger
-          </a>
-          <a
-            className="hover:underline"
-            href="https://vimeo.com/888883173/a6804c7e59?share=copy"
-            target="_blank"
-          >
-            Lesson 4: Bargaining
-          </a>
-          <a
-            className="hover:underline"
-            href="https://vimeo.com/888884122/8844deb2a6?share=copy"
-            target="_blank"
-          >
-            Lesson 5: Depression
-          </a>
-          <a
-            className="hover:underline"
-            href="https://vimeo.com/888884619/f9ef76a4d0?share=copy"
-            target="_blank"
-          >
-            Lesson 6: Acceptance
-          </a>
-          <a
-            className="hover:underline"
-            href="https://vimeo.com/888884933/5b8002896c?share=copy"
-            target="_blank"
-          >
-            Lesson 7: Assigning Meaning
-          </a>
-          <a
-            className="hover:underline"
-            href="https://vimeo.com/888885432/136d6d426a?share=copy"
-            target="_blank"
-          >
-            Lesson 8: Gratitude
-          </a>
-          <a
-            className="hover:underline"
-            href="https://vimeo.com/888886334/6a5dbdb0a5?share=copy"
-            target="_blank"
-          >
-            Lesson 9: Boundaries
-          </a>
-          <a
-            className="hover:underline"
-            href="https://vimeo.com/888886775/f6b7be2f2e?share=copy"
-            target="_blank"
-          >
-            Lesson 10: Friendship
-          </a>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              variant="contained"
+              href="https://vimeo.com/888880268/d3633c22db?share=copy"
+              target="_blank"
+            >
+              Lesson 1: You&apos;re Not Alone
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              variant="contained"
+              href="https://vimeo.com/888881309/02a21c7941?share=copy"
+              target="_blank"
+            >
+              Lesson 2: Denial
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              variant="contained"
+              href="https://vimeo.com/888882260/6109bd9179?share=copy"
+              target="_blank"
+            >
+              Lesson 3: Anger
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              variant="contained"
+              href="https://vimeo.com/888883173/a6804c7e59?share=copy"
+              target="_blank"
+            >
+              Lesson 4: Bargaining
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              variant="contained"
+              href="https://vimeo.com/888884122/8844deb2a6?share=copy"
+              target="_blank"
+            >
+              Lesson 5: Depression
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              variant="contained"
+              href="https://vimeo.com/888884619/f9ef76a4d0?share=copy"
+              target="_blank"
+            >
+              Lesson 6: Acceptance
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              variant="contained"
+              href="https://vimeo.com/888884933/5b8002896c?share=copy"
+              target="_blank"
+            >
+              Lesson 7: Assigning Meaning
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              variant="contained"
+              href="https://vimeo.com/888885432/136d6d426a?share=copy"
+              target="_blank"
+            >
+              Lesson 8: Gratitude
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              variant="contained"
+              href="https://vimeo.com/888886334/6a5dbdb0a5?share=copy"
+              target="_blank"
+            >
+              Lesson 9: Boundaries
+            </Button>
+          </div>
+          <div className="my-1 mx-auto md:w-[65%]">
+            <Button
+              fullWidth
+              variant="contained"
+              href="https://vimeo.com/888886775/f6b7be2f2e?share=copy"
+              target="_blank"
+            >
+              Lesson 10: Friendship
+            </Button>
+          </div>
         </div>
       </div>
     </div>
