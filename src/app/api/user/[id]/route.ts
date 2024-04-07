@@ -1,3 +1,4 @@
+import { verifyJwt } from '@/lib/jwt';
 import prisma from '@/lib/prisma';
 
 interface RequestBody {
@@ -6,40 +7,62 @@ interface RequestBody {
   email: string;
   password: string;
   admin: boolean;
-  approved: boolean;
-  blocked: boolean;
 } 
 
-export async function PUT(request: Request, {params}: {params: {id: string}}) {
-  const body:RequestBody = await request.json();
+export async function GET(request: Request, {params}: {params: {id: string}}) {
   try {
-    console.log(params.id)
     const user = await prisma.userhc.findUniqueOrThrow({
       where:{
         email: params.id,
       }
     });
+    const {password, ...res} = user;
+    return new Response(JSON.stringify(res));
+  } catch (err) {
+    const response = new Response(null, {status: 404, statusText: 'Account not found'});
+    return response;
+  }
+}
+
+export async function PUT(request: Request, {params}: {params: {id: string}}) {
+  const accessToken = request.headers.get("Authorization")
+
+  if (!accessToken || !verifyJwt(accessToken)) {
+    return new Response(JSON.stringify({error: 'Unauthorized'}), {
+      status: 401
+    })
+  }
+  const body:RequestBody = await request.json();
+  try {
+    const user = await prisma.userhc.findUniqueOrThrow({
+      where:{
+        email: params.id,
+      }
+    });
+
+    console.log(user)
     const userToUpdate = {
       email: !!body.email ? body.email : user.email,
       firstname: !!body.firstname ? body.firstname : user.firstname,
       lastname: !!body.lastname ? body.lastname : user.lastname,
       admin: body.admin,
-      approved: body.approved,
-      blocked: body.blocked
     }
 
     const updatedUser = await prisma.userhc.update({
       where: {
-        email: body.email,
+        email: userToUpdate.email,
       },
       data: {
-        ...userToUpdate
+        email: userToUpdate.email,
+        firstname: userToUpdate.firstname,
+        lastname: userToUpdate.lastname,
+        admin: userToUpdate.admin
       }
     })
-    console.log()
+    
     const {password, ...res} = updatedUser;
     return new Response(JSON.stringify(res));
-  } catch {
+  } catch (err) {
     const response = new Response(null, {status: 400, statusText: 'BAD REQUEST'});
     return response;
   }

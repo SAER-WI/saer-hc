@@ -1,7 +1,7 @@
 'use client';
 import SignInButton from '@/components/SignInButton';
 import { TextField, Button, Typography } from '@mui/material';
-import { Archivo_Black, Manrope, Roboto } from 'next/font/google';
+import { Archivo_Black, Manrope } from 'next/font/google';
 import Image from 'next/image';
 import homeImage from '../../public/home page top picture.png';
 import secondHomeImage from '../../public/Second Image Home Page.png';
@@ -75,11 +75,10 @@ export default function Home() {
           <div className="bg-[#fff] absolute top-0 right-0 opacity-80 w-full h-full z-[0] md:hidden"></div>
           <div className="z-1 relative">
             <p className="m-1 md:text-lg">
-              The world is full of loss for students right now. And the
-              challenges they face often don’t show on the outside until lasting
-              damage has been done. Falling grades, family problems, at-risk
-              behavior, addiction – mental health challenges that no generation
-              has faced before.
+              The world is full of loss for students. And the challenges they
+              face often don’t show on the outside until lasting damage has been
+              done. Falling grades, family problems, at-risk behavior, addiction
+              – mental health challenges that few have faced before.
             </p>
             <p className="m-1 my-2 md:text-lg">
               Student Healthy Conversations is a powerful Social Emotional
@@ -89,12 +88,12 @@ export default function Home() {
               that everyday life so often throws their way.
             </p>
             <p className="m-1 md:text-lg">
-              Designed in partnership with mental health experts and
-              professional speakers who care about students. This highly
-              effective program equips facilitators to engage students in real
-              conversations that help them move through difficult situations.
-              Healthy Conversations is available to public and private school
-              districts in the US.
+              This resource is designed in partnership with mental health
+              experts and professional communicators who care about students.
+              This highly effective program equips facilitators to engage
+              students in real conversations that help students move through
+              difficult situations. Healthy Conversations is available to public
+              and private school districts in the US.
             </p>
           </div>
         </div>
@@ -153,10 +152,9 @@ export default function Home() {
           <p className="m-1">
             Clear, kind and never condescending, Healthy Conversations are
             perfectly pitched to the age groups who need these exchanges most.
-            Your students will go forward with tools and strategies to help them
-            deal with difficult situations, learn to reach out and communicate
-            with adults and each other, and recognize the goals of good mental
-            health.
+            They will go forward with tools and strategies to help them deal
+            with difficult situations, learn to reach out and communicate with
+            adults and each other, recognizing the goals of good mental health.
           </p>
         </div>
       </div>

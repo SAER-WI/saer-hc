@@ -21,6 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <title>Healthy Conversations</title>
       <body className={inter.className}>
         <Providers>
           <Navbar />

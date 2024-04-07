@@ -24,6 +24,12 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: manrope.style.fontFamily,
+    button: {
+      textTransform: 'none',
+    },
+  },
+  shape: {
+    borderRadius: 8,
   },
 });
 

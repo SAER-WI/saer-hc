@@ -1,3 +1,4 @@
+import { verifyJwt } from '@/lib/jwt';
 import prisma from '@/lib/prisma';
 import * as bcrypt from 'bcrypt';
 
@@ -33,7 +34,13 @@ export async function POST(request:Request) {
   }
 }
 
-export async function GET() {
+export async function GET(request:Request) {
+  const accessToken = request.headers.get("Authorization")
+  if (!accessToken || !verifyJwt(accessToken)) {
+    return new Response(JSON.stringify({error: 'Unauthorized'}), {
+      status: 401
+    })
+  }
   try {
     const users = await prisma.userhc.findMany({
       select: {

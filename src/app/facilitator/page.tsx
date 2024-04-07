@@ -48,12 +48,12 @@ const Page = () => {
       </h2>
       <ul className="m-2 list-inside list-disc md:m-5">
         <li className="my-1">
-          What are some strategies you can use to make time for rest, relief,
-          and your relationships?
+          What is one step you can take today to cultivate compassionate
+          leadership?
         </li>
         <li className="my-1">
-          As a teacher, why is this important for your students&apos;
-          well-being?
+          What response would you adjust in your classroom to cultivate
+          compassionate leadership?
         </li>
       </ul>
       <p className="m-2 md:m-5">
@@ -78,12 +78,12 @@ const Page = () => {
       </h2>
       <ul className="m-2 list-inside list-disc md:m-5">
         <li className="my-1">
-          What is one step you can take today to cultivate compassionate
-          leadership?
+          What are some strategies you can use to make time for rest, relief,
+          and your relationships?
         </li>
         <li className="my-1">
-          What response would you adjust in your classroom to cultivate
-          compassionate leadership?
+          As a teacher, why is this important for your students&apos;
+          well-being?
         </li>
       </ul>
       <p className="m-2 md:m-5">

@@ -13,13 +13,14 @@ datasource db {
 }
 
 model Userhc {
-  id        Int             @id @default(autoincrement())
-  email     String          @unique
-  firstname String
-  lastname  String
-  password  String
-  admin     Boolean         @default(false)
-  logs      ActivityLoghc[]
+  id                   Int                    @id @default(autoincrement())
+  email                String                 @unique
+  firstname            String
+  lastname             String
+  password             String
+  admin                Boolean                @default(false)
+  logs                 ActivityLoghc[]
+  PasswordResetTokenhc PasswordResetTokenhc[]
 }
 
 model ActivityLoghc {
@@ -30,16 +31,27 @@ model ActivityLoghc {
   date     DateTime
 }
 
+model PasswordResetTokenhc {
+  id        Int       @id @default(autoincrement())
+  token     String    @unique
+  createdAt DateTime  @default(now())
+  resetAt   DateTime?
+
+  user   Userhc @relation(fields: [userId], references: [id])
+  userId Int
+}
+
 model User {
-  id        Int           @id @default(autoincrement())
-  email     String        @unique
-  firstname String
-  lastname  String
-  password  String
-  approved  Boolean       @default(false)
-  admin     Boolean       @default(false)
-  blocked   Boolean       @default(false)
-  logs      ActivityLog[]
+  id                 Int                  @id @default(autoincrement())
+  email              String               @unique
+  firstname          String
+  lastname           String
+  password           String
+  approved           Boolean              @default(false)
+  admin              Boolean              @default(false)
+  blocked            Boolean              @default(false)
+  logs               ActivityLog[]
+  PasswordResetToken PasswordResetToken[]
 }
 
 model ActivityLog {
@@ -48,4 +60,14 @@ model ActivityLog {
   userId   Int
   lessonId String
   date     DateTime
+}
+
+model PasswordResetToken {
+  id        Int       @id @default(autoincrement())
+  token     String    @unique
+  createdAt DateTime  @default(now())
+  resetAt   DateTime?
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
 }

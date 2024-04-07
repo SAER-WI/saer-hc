@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Archivo_Black, Manrope, Roboto } from 'next/font/google';
 import facilitator from '../../../public/Photo for Facilitator Dashboard Page.png';
-import { useSession } from 'next-auth/react';
-import { Button } from '@mui/material';
+import { signOut, useSession } from 'next-auth/react';
+import { Button, Divider, Modal } from '@mui/material';
+import { useRouter } from 'next/navigation';
 
 const archivo = Archivo_Black({ subsets: ['latin'], weight: ['400'] });
 const manrope = Manrope({ subsets: ['latin'] });
@@ -15,10 +16,41 @@ interface ActivityLog {
   date: string;
 }
 
+const srcLinks = [
+  'https://player.vimeo.com/video/888880268?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+  'https://player.vimeo.com/video/888881309?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+  'https://player.vimeo.com/video/888882260?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+  'https://player.vimeo.com/video/888883173?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+  'https://player.vimeo.com/video/888884122?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+  'https://player.vimeo.com/video/888884619?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+  'https://player.vimeo.com/video/888884933?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+  'https://player.vimeo.com/video/888885432?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+  'https://player.vimeo.com/video/888886334?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+  'https://player.vimeo.com/video/888886775?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+];
+
+const titles = [
+  `Lesson 1: You're Not Alone`,
+  'Lesson 2: Denial',
+  'Lesson 3: Anger',
+  'Lesson 4: Bargaining',
+  'Lesson 5: Depression',
+  'Lesson 6: Acceptance',
+  'Lesson 7: Assigning Meaning',
+  'Lesson 8: Gratitude',
+  'Lesson 9: Boundaries',
+  'Lesson 10: Friendship',
+];
+
 const Page = () => {
   const [activityLogs, setActivityLogs] = useState<ActivityLog[]>([]);
   const { data: session } = useSession();
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [link, setLink] = useState('');
+  const [open, setOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const loadActivityLogs = async () => {
@@ -27,17 +59,30 @@ const Page = () => {
       };
       const options = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: session!.user.accessToken,
+        },
         body: JSON.stringify(data),
       };
+      console.log(options);
       const response = await fetch(`/api/activitylog`, options);
-      const result = await response.json();
-      setActivityLogs(result);
+      if (response.status === 401) {
+        try {
+          signOut();
+          router.push('/signIn');
+        } catch {
+          router.push('/signIn');
+        }
+      } else {
+        const result = await response.json();
+        setActivityLogs(result);
+      }
     };
     if (session?.user.id) {
       loadActivityLogs();
     }
-  }, [session?.user.id, loading]);
+  }, [session?.user.id, session, loading, router]);
 
   const handleClick = async (lessonId: string) => {
     const data = {
@@ -45,14 +90,16 @@ const Page = () => {
       lessonId: lessonId,
       date: new Date(Date.now()),
     };
-    console.log(data);
+
     const options = {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: session!.user.accessToken,
+      },
       body: JSON.stringify(data),
     };
-    const response = await fetch(`/api/activitylog`, options);
-    const result = await response.json();
+    await fetch(`/api/activitylog`, options);
     setLoading(!loading);
   };
 
@@ -263,8 +310,12 @@ const Page = () => {
             <Button
               fullWidth
               variant="contained"
-              href="https://vimeo.com/888880268/d3633c22db?share=copy"
-              target="_blank"
+              onClick={() => {
+                setModalTitle(titles[0]);
+                setLink(srcLinks[0]);
+                setCurrentIndex(0);
+                setOpen(true);
+              }}
             >
               Lesson 1: You&apos;re Not Alone
             </Button>
@@ -273,8 +324,12 @@ const Page = () => {
             <Button
               fullWidth
               variant="contained"
-              href="https://vimeo.com/888881309/02a21c7941?share=copy"
-              target="_blank"
+              onClick={() => {
+                setModalTitle(titles[1]);
+                setLink(srcLinks[1]);
+                setCurrentIndex(1);
+                setOpen(true);
+              }}
             >
               Lesson 2: Denial
             </Button>
@@ -283,8 +338,12 @@ const Page = () => {
             <Button
               fullWidth
               variant="contained"
-              href="https://vimeo.com/888882260/6109bd9179?share=copy"
-              target="_blank"
+              onClick={() => {
+                setModalTitle(titles[2]);
+                setLink(srcLinks[2]);
+                setCurrentIndex(2);
+                setOpen(true);
+              }}
             >
               Lesson 3: Anger
             </Button>
@@ -293,8 +352,12 @@ const Page = () => {
             <Button
               fullWidth
               variant="contained"
-              href="https://vimeo.com/888883173/a6804c7e59?share=copy"
-              target="_blank"
+              onClick={() => {
+                setModalTitle(titles[3]);
+                setLink(srcLinks[3]);
+                setCurrentIndex(3);
+                setOpen(true);
+              }}
             >
               Lesson 4: Bargaining
             </Button>
@@ -303,8 +366,12 @@ const Page = () => {
             <Button
               fullWidth
               variant="contained"
-              href="https://vimeo.com/888884122/8844deb2a6?share=copy"
-              target="_blank"
+              onClick={() => {
+                setModalTitle(titles[4]);
+                setLink(srcLinks[4]);
+                setCurrentIndex(4);
+                setOpen(true);
+              }}
             >
               Lesson 5: Depression
             </Button>
@@ -313,8 +380,12 @@ const Page = () => {
             <Button
               fullWidth
               variant="contained"
-              href="https://vimeo.com/888884619/f9ef76a4d0?share=copy"
-              target="_blank"
+              onClick={() => {
+                setModalTitle(titles[5]);
+                setLink(srcLinks[5]);
+                setCurrentIndex(5);
+                setOpen(true);
+              }}
             >
               Lesson 6: Acceptance
             </Button>
@@ -323,8 +394,12 @@ const Page = () => {
             <Button
               fullWidth
               variant="contained"
-              href="https://vimeo.com/888884933/5b8002896c?share=copy"
-              target="_blank"
+              onClick={() => {
+                setModalTitle(titles[6]);
+                setLink(srcLinks[6]);
+                setCurrentIndex(6);
+                setOpen(true);
+              }}
             >
               Lesson 7: Assigning Meaning
             </Button>
@@ -333,8 +408,12 @@ const Page = () => {
             <Button
               fullWidth
               variant="contained"
-              href="https://vimeo.com/888885432/136d6d426a?share=copy"
-              target="_blank"
+              onClick={() => {
+                setModalTitle(titles[7]);
+                setLink(srcLinks[7]);
+                setCurrentIndex(7);
+                setOpen(true);
+              }}
             >
               Lesson 8: Gratitude
             </Button>
@@ -343,8 +422,12 @@ const Page = () => {
             <Button
               fullWidth
               variant="contained"
-              href="https://vimeo.com/888886334/6a5dbdb0a5?share=copy"
-              target="_blank"
+              onClick={() => {
+                setModalTitle(titles[8]);
+                setLink(srcLinks[8]);
+                setCurrentIndex(8);
+                setOpen(true);
+              }}
             >
               Lesson 9: Boundaries
             </Button>
@@ -353,14 +436,53 @@ const Page = () => {
             <Button
               fullWidth
               variant="contained"
-              href="https://vimeo.com/888886775/f6b7be2f2e?share=copy"
-              target="_blank"
+              onClick={() => {
+                setModalTitle(titles[9]);
+                setLink(srcLinks[9]);
+                setCurrentIndex(9);
+                setOpen(true);
+              }}
             >
               Lesson 10: Friendship
             </Button>
           </div>
         </div>
       </div>
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <div className="flex flex-col absolute top-[50%] left-[50%] p-3 bg-white rounded-md translate-x-[-50%] translate-y-[-50%] md:w-4/6">
+          <h3 className="text-center mb-2">{modalTitle}</h3>
+          <iframe
+            src={link}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen={true}
+            className="rounded-md w-full h-[150px] md:h-[350px]"
+          />
+          <br />
+          <Divider variant="middle" />
+          <div className="flex flex-row justify-between">
+            <Button
+              disabled={currentIndex <= 0}
+              onClick={() => {
+                setLink(srcLinks[currentIndex - 1]);
+                setModalTitle(titles[currentIndex - 1]);
+                setCurrentIndex((prevIndex) => prevIndex - 1);
+              }}
+            >
+              Previous
+            </Button>
+            <Button
+              disabled={currentIndex >= 9}
+              onClick={() => {
+                setLink(srcLinks[currentIndex + 1]);
+                setModalTitle(titles[currentIndex + 1]);
+                setCurrentIndex((prevIndex) => prevIndex + 1);
+              }}
+            >
+              Next
+            </Button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };

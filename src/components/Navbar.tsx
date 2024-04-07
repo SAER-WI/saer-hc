@@ -1,18 +1,16 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
-  Box,
   Drawer,
   List,
   ListItemButton,
-  Link,
   ListItemText,
   Button,
 } from '@mui/material';
+import Link from 'next/link';
 import Logo from '../../public/Banner-HC-Logo.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import SignInButton from './SignInButton';
@@ -70,7 +68,14 @@ const Navbar = () => {
           </List>
         </Drawer>
         <div className="flex justify-between w-full">
-          <Image src={Logo} alt="Banner-HC-Logo" width={125} className="m-1" />
+          <Link href="/">
+            <Image
+              src={Logo}
+              alt="Banner-HC-Logo"
+              width={125}
+              className="m-1"
+            />
+          </Link>
           <IconButton
             onClick={() => setOpen(true)}
             size="large"

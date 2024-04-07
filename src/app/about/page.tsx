@@ -58,17 +58,7 @@ const page = () => {
           manrope.className + ' bottomAboutPageBanner text-white py-2 md:mt-10'
         }
       >
-        <p className="m-2 md:mx-10 md:text-xl md:text-center">
-          A team of school speakers and trainers from across the nation came
-          together to create engaging and challenging content to have a lasting
-          impact on students, teachers, and families. After meeting with some
-          mental health professionals, we chose to create our first project:
-          Healthy Conversations About Loss. We called on some of the best
-          speakers to students from across the nation to join us and create
-          powerful video content to supplement the lessons from the mental
-          health professionals that we partnered with.
-        </p>
-        <p className="text-center m-2 md:text-xl">Contact us</p>
+        <h2 className="text-center m-2">Contact us</h2>
         <div>
           <div className="text-center">
             <Button color="secondary" variant="contained" size="small">

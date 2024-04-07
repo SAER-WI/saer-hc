@@ -1,3 +1,4 @@
+import { verifyJwt } from '@/lib/jwt';
 import prisma from '@/lib/prisma';
 
 interface RequestBody {
@@ -7,6 +8,12 @@ interface RequestBody {
 } 
 
 export async function PUT(request: Request) {
+  const accessToken = request.headers.get("Authorization")
+  if (!accessToken || !verifyJwt(accessToken)) {
+    return new Response(JSON.stringify({error: 'Unauthorized'}), {
+      status: 401
+    })
+  }
   const body:RequestBody = await request.json();
   console.log(body)
   const existingLog = await prisma.activityLoghc.findFirst({
@@ -39,6 +46,12 @@ export async function PUT(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const accessToken = request.headers.get("Authorization")
+  if (!accessToken || !verifyJwt(accessToken)) {
+    return new Response(JSON.stringify({error: 'Unauthorized'}), {
+      status: 401
+    })
+  }
   const body:RequestBody = await request.json();
   try {
     const logs = await prisma.activityLoghc.findMany({

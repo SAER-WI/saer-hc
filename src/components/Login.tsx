@@ -1,7 +1,10 @@
 'use client';
-import { Button, TextField, Alert, Slide, Snackbar } from '@mui/material';
+import { LinearProgress } from '@mui/material';
 import { signIn } from 'next-auth/react';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { FormEventHandler, useRef, useState } from 'react';
+import Email from './Email';
+import Password from './Password';
+import { useRouter } from 'next/navigation';
 
 type Props = {
   className?: string;
@@ -9,79 +12,114 @@ type Props = {
   error?: string;
 };
 
+interface User {
+  id: number;
+  firstname: string;
+  lastname: string;
+  email: string;
+  admin: boolean;
+}
+
+const initialUser: User = {
+  id: 0,
+  firstname: '',
+  lastname: '',
+  email: '',
+  admin: false,
+};
+
 const Login = (props: Props) => {
-  const email = useRef('');
   const password = useRef('');
-  const [open, setOpen] = useState(!!props.error);
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [emailDisabled, setEmailDisabled] = useState(true);
+  const [passwordDisabled, setPasswordDisabled] = useState(true);
+  const [emailEntered, setEmailEntered] = useState(false);
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [user, setUser] = useState(initialUser);
+  const onEmailChange = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(value);
+    if (value.length === 0) {
+      setEmailDisabled(true);
+    } else {
+      setEmailDisabled(false);
+    }
+  };
+
+  const onPasswordChange = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    password.current = value;
+    if (password.current.length === 0) {
+      setPasswordDisabled(true);
+    } else {
+      setPasswordDisabled(false);
+    }
+  };
+
+  const onEmailSubmit: FormEventHandler = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    setLoading(true);
     e.preventDefault();
-    await signIn('credentials', {
-      username: email.current,
+    const response = await fetch(`/api/user/${email}`);
+    if (response.status === 200) {
+      const user: User = await response.json();
+      setUser(user);
+      setEmailEntered(true);
+    } else {
+      setEmailError(response.statusText);
+    }
+    setLoading(false);
+  };
+  const onPasswordSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true);
+    e.preventDefault();
+    const response = await signIn('credentials', {
+      username: email,
       password: password.current,
-      redirect: true,
-      callbackUrl: props.callbackUrl ?? '/',
+      redirect: false,
     });
+
+    if (response?.status === 200) {
+      router.push(props.callbackUrl ?? '/');
+    } else if (response?.status === 401) {
+      setPasswordError('Password incorrect');
+    } else {
+      if (props.error !== undefined) {
+        setPasswordError(props.error!);
+      } else {
+        setPasswordError('An error occurred');
+      }
+    }
+    setLoading(false);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
   return (
-    <div
-      className={props.className + ' flex flex-col align-center text-center'}
-    >
-      {!!props.error && (
-        <Snackbar
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center',
-          }}
-          autoHideDuration={6000}
-          open={open}
-          onClose={handleClose}
-          TransitionComponent={Slide}
-        >
-          <Alert variant="filled" onClose={handleClose} severity="error">
-            Incorrect username or password
-          </Alert>
-        </Snackbar>
+    <>
+      {loading ? <LinearProgress /> : <div className="w-full h-[4px]"></div>}
+      {emailEntered && user?.id > 0 ? (
+        <Password
+          error={passwordError}
+          firstname={user.firstname}
+          onPasswordChange={onPasswordChange}
+          onPasswordSubmit={onPasswordSubmit}
+          disabled={passwordDisabled}
+        />
+      ) : (
+        <Email
+          disabled={emailDisabled}
+          error={emailError}
+          onEmailChange={onEmailChange}
+          onEmailSubmit={onEmailSubmit}
+          email={email}
+        />
       )}
-      <form onSubmit={onSubmit} className="flex flex-col my-4">
-        <div className="my-2">
-          <TextField
-            variant="filled"
-            label="Email"
-            onChange={({ target }) => (email.current = target.value)}
-          />
-        </div>
-        <div className="my-2">
-          <TextField
-            variant="filled"
-            type="password"
-            label="Password"
-            onChange={({ target }) => (password.current = target.value)}
-          />
-        </div>
-
-        <div className="flex flex-row mx-auto">
-          <div className="m-2">
-            <Button variant="contained" type="submit">
-              Sign In
-            </Button>
-          </div>
-          <div className="m-2">
-            <Button variant="outlined" color="primary" href="/register">
-              Register
-            </Button>
-          </div>
-        </div>
-        <div>
-          <Button color="error" href={props.callbackUrl ?? '/'}>
-            Cancel
-          </Button>
-        </div>
-      </form>
-    </div>
+    </>
   );
 };
 
