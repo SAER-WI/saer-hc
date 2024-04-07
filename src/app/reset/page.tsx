@@ -59,7 +59,7 @@ const Page = ({ showSnackbar }: props) => {
   };
   return (
     <div>
-      {loading ? <LinearProgress /> : null}
+      {loading ? <LinearProgress /> : <div className="w-full h-[4px]"></div>}
       <form onSubmit={handleSubmit}>
         <div className="md:w-4/6 w-5/6 mx-auto my-10 flex flex-col md:flex-row">
           <div className="md:w-3/6">

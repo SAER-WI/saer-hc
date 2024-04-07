@@ -13,6 +13,8 @@ import FailedCheck from '@/components/FailedCheck';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import PasswordConfirm from '@/components/PasswordConfirm';
+import withSnackbar from '@/components/withSnackbar';
+import { useRouter } from 'next/navigation';
 
 const archivo = Archivo_Black({ subsets: ['latin'], weight: ['400'] });
 const manrope = Manrope({ subsets: ['latin'] });
@@ -35,7 +37,7 @@ function passwordsMatch(input: string, inputTwo: string): boolean {
   return input === inputTwo;
 }
 
-const Page = ({ params }: { params: { token: string } }) => {
+const Page = ({ props, params }: { props: any; params: { token: string } }) => {
   const password = useRef('');
   const passwordConfirm = useRef('');
   const [matchCheck, setMatchCheck] = useState(false);
@@ -43,6 +45,7 @@ const Page = ({ params }: { params: { token: string } }) => {
   const [specialCheck, setSpecialCheck] = useState(false);
   const [numberCheck, setNumberCheck] = useState(false);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const passwordValidation = (pw: string) => {
     setSpecialCheck(containsSpecialCharacter(pw));
@@ -81,16 +84,19 @@ const Page = ({ params }: { params: { token: string } }) => {
 
     const response = await fetch('/api/resetpassword', options);
     if (response.status === 200) {
-      //success snackbar
+      props.showSnackbar('Password successfully reset', 'success');
+      setTimeout(() => {
+        router.push('/signIn');
+      }, 5000);
     } else {
-      //failure snackbar
+      props.showSnackbar('Failed to reset password', 'error');
     }
     setLoading(false);
   };
 
   return (
     <>
-      {loading ? <LinearProgress /> : null}
+      {loading ? <LinearProgress /> : <div className="w-full h-[4px]"></div>}
       <PasswordConfirm
         handleChange={handleChange}
         handleSubmit={handleSubmit}
@@ -104,4 +110,4 @@ const Page = ({ params }: { params: { token: string } }) => {
   );
 };
 
-export default Page;
+export default withSnackbar(Page);
