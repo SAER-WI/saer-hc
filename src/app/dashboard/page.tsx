@@ -65,8 +65,9 @@ const Page = () => {
         },
         body: JSON.stringify(data),
       };
-      console.log(options);
+
       const response = await fetch(`/api/activitylog`, options);
+
       if (response.status === 401) {
         try {
           signOut();
@@ -79,6 +80,7 @@ const Page = () => {
         setActivityLogs(result);
       }
     };
+
     if (session?.user.id) {
       loadActivityLogs();
     }

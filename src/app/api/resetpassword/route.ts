@@ -11,7 +11,7 @@ interface RequestBody {
 export async function PUT(request: Request) {
   try {
     const body:RequestBody = await request.json();
-    console.log(body)
+
     const resetToken = await prisma.passwordResetTokenhc.findUnique({
       where: {
         token: body.token,
@@ -19,8 +19,6 @@ export async function PUT(request: Request) {
         resetAt: null
       },
     })
-
-    console.log(resetToken)
 
 
     if (!resetToken) {
@@ -54,7 +52,7 @@ export async function PUT(request: Request) {
 export async function POST(request: Request) {
   try {
     const body:RequestBody = await request.json();
-    console.log(body)
+    
     const randomtoken = `${randomUUID()}${randomUUID()}`.replace(/-/g, '')
 
     const token = await prisma.passwordResetTokenhc.create({
@@ -66,7 +64,6 @@ export async function POST(request: Request) {
     
     return new Response(JSON.stringify(token))
   } catch (err){
-    console.log(err)
     const response = new Response(null, {status: 400, statusText: 'BAD REQUEST'});
     return response;
   }

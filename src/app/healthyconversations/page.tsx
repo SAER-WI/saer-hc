@@ -113,7 +113,7 @@ const Page = () => {
           <h4
             className={
               manrope.className +
-              ' border-[#61CE70] bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[45%] md:mx-[2.5%] md:p-1'
+              ' md:text-2xl bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[45%] md:mx-[2.5%] md:p-1'
             }
           >
             All Course Lessons
@@ -121,7 +121,7 @@ const Page = () => {
           <h4
             className={
               manrope.className +
-              ' border-[#61CE70] bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[45%] md:mx-[2.5%] md:p-1'
+              ' md:text-2xl bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[45%] md:mx-[2.5%] md:p-1'
             }
           >
             Student Guides
@@ -129,7 +129,7 @@ const Page = () => {
           <h4
             className={
               manrope.className +
-              ' border-[#61CE70] bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[45%] md:mx-[2.5%] md:p-1'
+              ' md:text-2xl bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[45%] md:mx-[2.5%] md:p-1'
             }
           >
             Videos with Helpful Tips for Teachers
@@ -137,7 +137,7 @@ const Page = () => {
           <h4
             className={
               manrope.className +
-              ' border-[#61CE70] bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[45%] md:mx-[2.5%] md:p-1'
+              ' md:text-2xl bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[45%] md:mx-[2.5%] md:p-1'
             }
           >
             Parent Guides

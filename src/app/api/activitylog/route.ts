@@ -15,7 +15,6 @@ export async function PUT(request: Request) {
     })
   }
   const body:RequestBody = await request.json();
-  console.log(body)
   const existingLog = await prisma.activityLoghc.findFirst({
     where: {
       lessonId: body.lessonId,

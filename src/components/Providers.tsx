@@ -1,10 +1,8 @@
 'use client';
-
 import React, { ReactNode } from 'react';
-import { SessionProvider } from 'next-auth/react';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Inter, Manrope, Archivo_Black } from 'next/font/google';
+import { Manrope, Archivo_Black } from 'next/font/google';
 
 const manrope = Manrope({ subsets: ['latin'] });
 const archivo = Archivo_Black({ subsets: ['latin'], weight: ['400'] });
@@ -35,11 +33,9 @@ const theme = createTheme({
 
 const Providers = ({ children }: Props) => {
   return (
-    <SessionProvider>
-      <AppRouterCacheProvider>
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
-      </AppRouterCacheProvider>
-    </SessionProvider>
+    <AppRouterCacheProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </AppRouterCacheProvider>
   );
 };
 

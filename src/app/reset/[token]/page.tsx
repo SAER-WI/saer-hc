@@ -48,9 +48,11 @@ const Page = ({ props, params }: { props: any; params: { token: string } }) => {
   const router = useRouter();
 
   const passwordValidation = (pw: string) => {
-    setSpecialCheck(containsSpecialCharacter(pw));
-    setUpperCheck(containsUppercase(pw));
-    setNumberCheck(containsNumber(pw));
+    if (pw === password.current) {
+      setSpecialCheck(containsSpecialCharacter(pw));
+      setUpperCheck(containsUppercase(pw));
+      setNumberCheck(containsNumber(pw));
+    }
     setMatchCheck(passwordsMatch(password.current, passwordConfirm.current));
   };
 

@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import saerLogo from '../../../public/saerlogo copy.png';
-import { Archivo_Black, Manrope, Roboto } from 'next/font/google';
-
+import { Archivo_Black, Manrope } from 'next/font/google';
 const archivo = Archivo_Black({ subsets: ['latin'], weight: ['400'] });
 const manrope = Manrope({ subsets: ['latin'] });
 

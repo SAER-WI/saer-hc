@@ -43,7 +43,7 @@ const Navbar = () => {
             >
               <ListItemText primary="Healthy Conversations" />
             </ListItemButton>
-            {session?.user ? (
+            {session?.user.email ? (
               <ListItemButton
                 divider
                 onClick={() => setOpen(false)}
@@ -98,7 +98,7 @@ const Navbar = () => {
                 Healthy Conversations
               </Button>
             </div>
-            {session?.user ? (
+            {session?.user.email ? (
               <div className="mx-2">
                 <Button href="/dashboard">Dashboard</Button>
               </div>

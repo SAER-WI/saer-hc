@@ -9,10 +9,12 @@ import {
   Select,
   TextField,
 } from '@mui/material';
-import { useSession } from 'next-auth/react';
+import { getSession, signOut, useSession } from 'next-auth/react';
 import React, { FormEvent, useEffect, useState } from 'react';
 import { Archivo_Black } from 'next/font/google';
 import withSnackbar from '@/components/withSnackbar';
+import { useRouter } from 'next/navigation';
+import { verifyJwt } from '@/lib/jwt';
 
 const archivo = Archivo_Black({ subsets: ['latin'], weight: ['400'] });
 
@@ -20,9 +22,16 @@ interface props {
   showSnackbar: any;
 }
 
+interface User {
+  firstname: string;
+  lastname: string;
+  email: string;
+}
+
 const Page = ({ showSnackbar }: props) => {
-  const [users, setUsers] = useState([]);
-  const { data: session } = useSession();
+  const [users, setUsers] = useState<User[]>([]);
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const [admin, setAdmin] = useState<string>('false');
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -55,13 +64,23 @@ const Page = ({ showSnackbar }: props) => {
 
   useEffect(() => {
     const loadUsers = async () => {
-      const response = await fetch('/api/user');
+      setLoading(true);
+      const options = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: session!.user.accessToken,
+        },
+      };
+      const response = await fetch('/api/user', options);
       const result = await response.json();
       setUsers(result);
+      setLoading(false);
     };
     loadUsers();
-  }, []);
-  if (!session?.user.admin) {
+  }, [router, session]);
+
+  if (status === 'unauthenticated') {
     return (
       <div className={archivo.className}>
         <h2 className="text-center mt-3">
@@ -69,13 +88,15 @@ const Page = ({ showSnackbar }: props) => {
         </h2>
       </div>
     );
+  } else if (status === 'loading') {
+    return <LinearProgress />;
   } else {
     return (
       <>
         {loading ? <LinearProgress /> : <div className="w-full h-[4px]"></div>}
         <div className="md:flex md:flex-row">
           <div className="md:w-4/6 md:mt-5">
-            <UsersTable users={users} />
+            {users.length ? <UsersTable users={users} /> : null}
           </div>
           <div className="md:w-2/6 m-3 md:mt-5 md:mr-3">
             <form onSubmit={handleSubmit}>

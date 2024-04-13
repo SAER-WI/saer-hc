@@ -40,7 +40,6 @@ export async function PUT(request: Request, {params}: {params: {id: string}}) {
       }
     });
 
-    console.log(user)
     const userToUpdate = {
       email: !!body.email ? body.email : user.email,
       firstname: !!body.firstname ? body.firstname : user.firstname,
