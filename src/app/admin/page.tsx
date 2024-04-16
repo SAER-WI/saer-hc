@@ -9,12 +9,10 @@ import {
   Select,
   TextField,
 } from '@mui/material';
-import { getSession, signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import React, { FormEvent, useEffect, useState } from 'react';
 import { Archivo_Black } from 'next/font/google';
 import withSnackbar from '@/components/withSnackbar';
-import { useRouter } from 'next/navigation';
-import { verifyJwt } from '@/lib/jwt';
 
 const archivo = Archivo_Black({ subsets: ['latin'], weight: ['400'] });
 
@@ -31,7 +29,6 @@ interface User {
 const Page = ({ showSnackbar }: props) => {
   const [users, setUsers] = useState<User[]>([]);
   const { data: session, status } = useSession();
-  const router = useRouter();
   const [admin, setAdmin] = useState<string>('false');
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -78,7 +75,7 @@ const Page = ({ showSnackbar }: props) => {
       setLoading(false);
     };
     loadUsers();
-  }, [router, session]);
+  }, [session]);
 
   if (status === 'unauthenticated') {
     return (

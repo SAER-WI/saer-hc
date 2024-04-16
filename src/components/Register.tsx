@@ -1,22 +1,7 @@
 'use client';
-import {
-  Button,
-  TextField,
-  Alert,
-  Slide,
-  Snackbar,
-  LinearProgress,
-} from '@mui/material';
-import { signIn } from 'next-auth/react';
-import React, {
-  FormEvent,
-  FormEventHandler,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { LinearProgress } from '@mui/material';
+import React, { FormEventHandler, useRef, useState } from 'react';
 import Email from './Email';
-import Password from './Password';
 import { useRouter } from 'next/navigation';
 import Name from './Name';
 import PasswordConfirm from './PasswordConfirm';
