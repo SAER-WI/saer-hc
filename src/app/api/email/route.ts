@@ -15,7 +15,7 @@ export async function POST(request: Request) {
   try {
     //this needs to be updated to the correct domain, and the from section changed
     const {data, error} = await resend.emails.send({
-      from: 'noreply@animalcrossingwtc.com',
+      from: 'noreply@studenthealthyconversations.com',
       to: [body.email],
       subject: `Reset password for ${DOMAIN}`,
       react: MagicLinkEmail({ host: DOMAIN, url }),
