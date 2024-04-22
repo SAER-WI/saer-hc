@@ -23,7 +23,7 @@ export const authOptions : NextAuthOptions = {
       },
       async authorize(credentials, req) {
         // this url needs to be changed once the domain is hooked up
-        const res = await fetch("https://studenthealthyconversations/api/login", {
+        const res = await fetch("https://studenthealthyconversations.com/api/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
