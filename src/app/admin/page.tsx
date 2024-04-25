@@ -71,7 +71,7 @@ const Page = ({ showSnackbar }: props) => {
       };
       const response = await fetch('/api/user', options);
       const result = await response.json();
-      setUsers(result);
+      setUsers(result.filter((user: User) => !user.admin));
       setLoading(false);
     };
     loadUsers();
