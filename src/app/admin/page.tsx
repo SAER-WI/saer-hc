@@ -24,6 +24,7 @@ interface User {
   firstname: string;
   lastname: string;
   email: string;
+  admin: boolean;
 }
 
 const Page = ({ showSnackbar }: props) => {

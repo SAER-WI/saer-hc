@@ -8,8 +8,6 @@ interface RequestBody {
   email: string;
   password: string;
   admin: boolean;
-  approved: boolean;
-  blocked: boolean;
 } 
 
 export async function POST(request:Request) {
