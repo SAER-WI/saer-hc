@@ -84,7 +84,7 @@ export default function MagicLinkEmail({host, url}) {
           If you didn&apos;t try to reset your password, you can safely ignore this email.
         </Text>
         <Text style={footer}>
-          <Link style={{ ...link, color: '#898989'}} href='saer-hc.vercel.app' target='_blank'>
+          <Link style={{ ...link, color: '#898989'}} href='studenthealthyconversations.com' target='_blank'>
             {host}
           </Link>
         </Text>

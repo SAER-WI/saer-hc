@@ -129,18 +129,10 @@ const Page = () => {
           <h4
             className={
               manrope.className +
-              ' md:text-3xl bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[45%] md:mx-[2.5%] md:p-1'
+              ' md:text-3xl bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[95%] md:mx-[2.5%] md:p-1'
             }
           >
             Videos with Helpful Tips for Teachers
-          </h4>
-          <h4
-            className={
-              manrope.className +
-              ' md:text-3xl bg-white text-[#61ce70] text-center my-1 py-4 md:py-5 md:w-[45%] md:mx-[2.5%] md:p-1'
-            }
-          >
-            Parent Guides
           </h4>
         </div>
       </div>

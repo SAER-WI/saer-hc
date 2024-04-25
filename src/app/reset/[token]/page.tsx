@@ -1,23 +1,9 @@
 'use client';
-import {
-  Button,
-  IconButton,
-  InputAdornment,
-  LinearProgress,
-  TextField,
-} from '@mui/material';
-import React, { ChangeEventHandler, useRef, useState } from 'react';
-import { Archivo_Black, Manrope } from 'next/font/google';
-import SuccessCheck from '@/components/SuccessCheck';
-import FailedCheck from '@/components/FailedCheck';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { LinearProgress } from '@mui/material';
+import React, { useRef, useState } from 'react';
 import PasswordConfirm from '@/components/PasswordConfirm';
 import withSnackbar from '@/components/withSnackbar';
 import { useRouter } from 'next/navigation';
-
-const archivo = Archivo_Black({ subsets: ['latin'], weight: ['400'] });
-const manrope = Manrope({ subsets: ['latin'] });
 
 function containsSpecialCharacter(input: string): boolean {
   const pattern = /[~`!@#$%^&*()\-_+={}[\]\\|;:"<>,./?]/;
@@ -37,7 +23,13 @@ function passwordsMatch(input: string, inputTwo: string): boolean {
   return input === inputTwo;
 }
 
-const Page = ({ props, params }: { props: any; params: { token: string } }) => {
+const Page = ({
+  showSnackbar,
+  params,
+}: {
+  showSnackbar: any;
+  params: { token: string };
+}) => {
   const password = useRef('');
   const passwordConfirm = useRef('');
   const [matchCheck, setMatchCheck] = useState(false);
@@ -77,7 +69,7 @@ const Page = ({ props, params }: { props: any; params: { token: string } }) => {
       password: password.current,
       token: params.token,
     };
-
+    console.log(data);
     const options = {
       body: JSON.stringify(data),
       method: 'PUT',
@@ -86,12 +78,12 @@ const Page = ({ props, params }: { props: any; params: { token: string } }) => {
 
     const response = await fetch('/api/resetpassword', options);
     if (response.status === 200) {
-      props.showSnackbar('Password successfully reset', 'success');
+      showSnackbar('Password successfully reset', 'success');
       setTimeout(() => {
         router.push('/signIn');
       }, 5000);
     } else {
-      props.showSnackbar('Failed to reset password', 'error');
+      showSnackbar('Failed to reset password', 'error');
     }
     setLoading(false);
   };

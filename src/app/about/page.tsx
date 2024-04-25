@@ -61,7 +61,12 @@ const page = () => {
         <h2 className="text-center m-2">Contact us</h2>
         <div>
           <div className="text-center">
-            <Button color="secondary" variant="contained" size="small">
+            <Button
+              color="secondary"
+              variant="contained"
+              size="small"
+              href="mailto:jason@studenthealthyconversations.com"
+            >
               jason@studenthealthyconversations.com
             </Button>
           </div>

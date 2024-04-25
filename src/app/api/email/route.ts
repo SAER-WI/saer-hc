@@ -13,7 +13,6 @@ export async function POST(request: Request) {
   const url = `${PROTOCOL}://${DOMAIN}/reset/${body.token}`;
 
   try {
-    //this needs to be updated to the correct domain, and the from section changed
     const {data, error} = await resend.emails.send({
       from: 'noreply@studenthealthyconversations.com',
       to: [body.email],

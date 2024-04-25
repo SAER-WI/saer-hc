@@ -177,7 +177,12 @@ export default function Home() {
           </p>
           <p className="text-center">Contact us to learn more:</p>
           <div className="text-center">
-            <Button color="secondary" size="small" variant="contained">
+            <Button
+              color="secondary"
+              size="small"
+              variant="contained"
+              href="mailto:jason@studenthealthyconversations.com"
+            >
               jason@studenthealthyconversations.com
             </Button>
           </div>
