@@ -35,6 +35,7 @@ const Email = ({
             <div className="mt-2 mb-8">
               <TextField
                 variant="filled"
+                autoCapitalize="off"
                 label="Email"
                 fullWidth
                 error={!!error.length}
